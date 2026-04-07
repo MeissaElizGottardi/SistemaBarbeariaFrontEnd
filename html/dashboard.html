@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../imagens/gifbarber.gif" alt="Logo animada">
+            <span>Guia</span>
+        </div>
+
+        <nav>
+            <a href="paginainicial.html">Página Inicial</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="agendamentos.html">Agendamentos</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div class="header-brand">
+                <h1>Barbearia Senai</h1>
+                <span class="sub-text">Acompanhe os números do seu negócio!</span>
+            </div>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon money"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="metric-info">
+                    <span>Faturamento (Mês)</span>
+                    <h3>R$ 4.520,00</h3>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon calendar"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="metric-info">
+                    <span>Agendamentos (Mês)</span>
+                    <h3>124</h3>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon users"><i class="fa-solid fa-user-plus"></i></div>
+                <div class="metric-info">
+                    <span>Novos Clientes</span>
+                    <h3>18</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            
+            <div class="card chart-container">
+                <h3><i class="fa-solid fa-chart-line"></i> Desempenho Semanal</h3>
+                <canvas id="meuGrafico"></canvas>
+            </div>
+
+            <div class="card agendamentos-container">
+                <h3><i class="fa-solid fa-clock"></i> Próximos de Hoje</h3>
+                
+                <div class="agenda-list">
+                    
+                    <div class="agenda-item">
+                        <div class="time">14:00</div>
+                        <div class="info">
+                            <strong>Carlos Eduardo</strong>
+                            <span>Corte Degradê - Jhon</span>
+                        </div>
+                        <div class="status running">Em breve</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="time">15:00</div>
+                        <div class="info">
+                            <strong>Marcos Oliveira</strong>
+                            <span>Barba Completa - Jhon</span>
+                        </div>
+                        <div class="status waiting">Aguardando</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="time">16:30</div>
+                        <div class="info">
+                            <strong>Roberto Silva</strong>
+                            <span>Corte + Barba - Jhon</span>
+                        </div>
+                        <div class="status waiting">Aguardando</div>
+                    </div>
+
+                </div>
+                
+                <a href="agendamentos.html" class="btn-view-all">Ver Todos</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+</html>

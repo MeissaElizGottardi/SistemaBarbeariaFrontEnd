@@ -1,0 +1,363 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY - NOVA VIBE OLD SCHOOL ESCURA */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+
+    /* Degradê sutil de grafite para cinza chumbo */
+    background: linear-gradient(135deg, #2b3a55, #121826);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #000000;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    position: fixed;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* GIF */
+.logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* MENU */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: linear-gradient(45deg, #0284c7, #0369a1);
+    color: white;
+}
+
+/* MAIN */
+.main {
+    margin-left: 240px;
+    width: 100%;
+    padding: 30px;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    font-family: 'Cinzel Decorative', serif;
+    color: #ffffff;
+    font-size: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* CARD BASE */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LINHA PREMIUM */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #045a85;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* CONTAINER DOS CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 25px;
+    height: auto;
+    align-items: start;
+    /* Impede os cards de esticarem para baixo forçadamente */
+}
+
+/* CARD LOCAL */
+.card.local {
+    grid-column: 1;
+    grid-row: 1;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+/* CARD CONTATOS */
+.card.contatos {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* TÍTULO DOS CARDS */
+.card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20px;
+    /* Aumentei um pouco aqui também */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #0f172a;
+    letter-spacing: 1.5px;
+}
+
+/* TEXTOS DOS CARDS */
+.card p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* ÍCONES */
+.card i {
+    color: #0f172a;
+    font-size: 18px;
+}
+
+/* IMAGEM DO MAPA (CARD LOCAL) */
+.card.local img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+.card.local img:hover {
+    transform: scale(1.03);
+}
+
+/* CARD DE FEEDBACKS */
+.card.feedback-card {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que os depoimentos quebrem linha sozinhos */
+    gap: 15px;
+    align-content: flex-start;
+}
+
+/* Garante que o título do card de feedbacks ocupe a largura total do topo */
+.card.feedback-card h3 {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* CAIXINHA DE CADA FEEDBACK */
+.feedback {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 07px;
+    background: #f8fafc;
+    border-radius: 12px;
+    transition: 0.3s;
+
+    /* Força as caixinhas a dividirem a tela de 2 em 2 */
+    width: calc(50% - 10px);
+    /* Impede que o texto esmague a foto */
+    flex-shrink: 0;
+}
+
+.feedback:hover {
+    background: #f1f5f9;
+}
+
+/* IMAGEM DO FEEDBACK */
+.feedback img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 0;
+}
+
+/* TEXTOS DO FEEDBACK */
+.feedback strong {
+    font-size: 15px;
+}
+
+.feedback p {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* BOTÕES */
+.btn-primary {
+    background: linear-gradient(45deg, #0284c7, #0369a1);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-maps {
+    display: inline-block;
+    margin-top: 15px;
+    width: 100%;
+    /* Faz o botão ocupar toda a largura do card (opcional) */
+    text-align: center;
+    border: none;
+    cursor: pointer;
+
+    /* MUDAMOS AQUI: Azul mais escuro, encorpado e sofisticado */
+    background: linear-gradient(45deg, #0284c7, #0369a1);
+    color: #ffffff;
+
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    /* Mantém a fonte do botão limpa */
+    font-weight: 600;
+    font-size: 14px;
+
+    /* Sombra suave acompanhando o tom do botão */
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn-maps:hover {
+    transform: translateY(-2px);
+    /* Dá um leve brilho no botão ao passar o mouse */
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
+    background: linear-gradient(45deg, #0ea5e9, #0284c7);
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    animation: aparecer 0.3s ease;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ANIMAÇÃO */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .card.local,
+    .card.contatos,
+    .card.feedback-card {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .feedback {
+        width: 100%;
+        /* Em telas pequenas, ocupa a largura total */
+    }
+}

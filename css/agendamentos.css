@@ -1,0 +1,363 @@
+/* ==========================================================================
+   1. RESET & CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    background: linear-gradient(135deg, #2b3a55, #121826);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. LAYOUT (SIDEBAR & MAIN)
+   ========================================================================== */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: linear-gradient(45deg, #045a85, #0369a1);
+    color: white;
+}
+
+.main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 30px;
+}
+
+/* ==========================================================================
+   3. COMPONENTES (TOPBAR & CARDS)
+   ========================================================================== */
+/* TOPBAR */
+.topbar {
+    display: flex;
+    font-family: 'Cinzel Decorative', serif;
+    color: #ffffff;
+    font-size: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-brand h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: 2px;
+}
+
+.header-brand .sub-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    color: #0f172a; /* Texto escuro dentro do card branco */
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #045a85;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.cards {
+    display: grid;
+    /* Divide o espaço em 5 partes: 3 para a esquerda, 2 para a direita */
+    grid-template-columns: 3fr 2fr; 
+    gap: 25px;
+    height: auto;
+    align-items: start;
+}
+
+.card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #0f172a;
+    letter-spacing: 1.5px;
+}
+
+.card i {
+    color: #0f172a;
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   4. FORMULÁRIO DE CADASTRO (GRID 12 COLUNAS)
+   ========================================================================== */
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.form-section h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0ea5e9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.05); /* Linha sutil escura para fundo branco */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.input-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-wrap label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b; /* Cinza para os labels no card branco */
+}
+
+/* Estilo padronizado igual ao de Serviços */
+.input-wrap input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1; /* Borda visível cinza */
+    background: #f8fafc; /* Fundo levemente cinza off-white */
+    border-radius: 6px;
+    color: #0f172a; /* Texto digitado escuro */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-wrap input:focus {
+    outline: none;
+    border-color: #045a85;
+    background: #ffffff; /* Fica todo branco ao focar */
+    box-shadow: 0 0 0 2px rgba(4, 90, 133, 0.15); /* Glow sutil */
+}
+
+/* CLASSES UTILITÁRIAS DE TAMANHO */
+.span-12 { grid-column: span 12; }
+.span-9 { grid-column: span 9; }
+.span-8 { grid-column: span 8; }
+.span-6 { grid-column: span 6; }
+.span-5 { grid-column: span 5; }
+.span-4 { grid-column: span 4; }
+.span-3 { grid-column: span 3; }
+
+/* ==========================================================================
+   5. GERENCIADOR & TABELAS
+   ========================================================================== */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #334155;
+}
+
+/* Botões de Ação na Tabela */
+.btn-action {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btn-action.edit { color: #0ea5e9; }
+.btn-action.edit:hover { background: rgba(14, 165, 233, 0.1); }
+
+.btn-action.delete { color: #ef4444; }
+.btn-action.delete:hover { background: rgba(239, 68, 68, 0.1); }
+
+/* ==========================================================================
+   6. BOTÃO PRINCIPAL & ESTADOS VAZIOS
+   ========================================================================== */
+.btn-maps {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #045a85, #0369a1);
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn-maps:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
+    background: linear-gradient(45deg, #0ea5e9, #0284c7);
+}
+
+/* Controle de Estados (Vazio / Preenchido) */
+.table-container,
+.empty-state {
+    display: none;
+}
+
+.table-container.active {
+    display: block;
+}
+
+.empty-state.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 40px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.empty-state span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   7. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
