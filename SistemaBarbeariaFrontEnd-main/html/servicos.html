@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Serviços</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/servicos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../imagens/gifbarber.gif" alt="Logo animada">
+            <span>Guia</span>
+        </div>
+
+        <nav>
+            <a href="paginainicial.html">Página Inicial</a>
+            <a href="servicos.html" class="active">Serviços</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="agendamentos.html">Agendamentos</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <h1>Barbearia Senai</h1>
+            <span class="sub-text">Gerencie seus serviços aqui!</span>
+        </header>
+
+        <section class="cards">
+
+            <!-- 🔥 CARD FORM -->
+            <div class="card adicionar-servico">
+                <h3><i class="fa-solid fa-user-plus"></i> Adicionar Serviço</h3>
+
+                <div class="form-group">
+
+                    <div class="form-section span-12">
+                        <h4>Dados do Serviço</h4>
+                        <div class="section-divider"></div>
+                    </div>
+
+                    <div class="input-wrap span-12">
+                        <label>Categoria</label>
+                        <input type="text" id="categoriaServico" placeholder="Ex: Barba">
+                    </div>
+
+                    <div class="input-wrap span-6">
+                        <label>Valor</label>
+                        <input type="number" id="valor" placeholder="0.00" step="0.01">
+                    </div>
+
+                    <div class="input-wrap span-6">
+                        <label>Data de Criação</label>
+                        <input type="date" id="dataDeCriacaoDoServico">
+                    </div>
+
+                    <div class="input-wrap span-6">
+                        <label>Atendente</label>
+                        <input type="text" id="atendente" placeholder="Ex: João">
+                    </div>
+
+                    <div class="input-wrap span-12">
+                        <label>Descrição</label>
+                        <input type="text" id="descricao" placeholder="Descrição do serviço">
+                    </div>
+
+                </div> <!-- FECHA form-group -->
+
+                <div class="form-actions">
+                    <button class="btn-maps" onclick="salvarServico()">
+                        Salvar Serviço
+                    </button>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <!-- 🔥 CARD TABELA -->
+            <div class="card gerenciar-servico">
+                <h3><i class="fa-solid fa-users-gear"></i> Gerenciar Serviços</h3>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Valor</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <!-- 🔥 AQUI ESTAVA TODO QUEBRADO -->
+                        <tbody id="lista-servicos"></tbody>
+
+                    </table>
+                </div>
+
+                <div class="empty-state">
+                    <i class="fa-solid fa-user-slash"></i>
+                    <p>Nenhum serviço cadastrado no momento.</p>
+                    <span>Os serviços que você adicionar aparecerão aqui.</span>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="../js/servicos.js"></script>
+</body>
+
+</html>
