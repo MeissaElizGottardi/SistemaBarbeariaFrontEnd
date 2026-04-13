@@ -32,13 +32,13 @@
     <main class="main">
 
         <header class="topbar">
-                <h1>Barbearia Senai</h1>
-                <span class="sub-text">Gerencie seus serviços aqui!</span>
-            </div>
+            <h1>Barbearia Senai</h1>
+            <span class="sub-text">Gerencie seus serviços aqui!</span>
         </header>
 
         <section class="cards">
 
+          
             <div class="card adicionar-servico">
                 <h3><i class="fa-solid fa-user-plus"></i> Adicionar Serviço</h3>
 
@@ -50,57 +50,56 @@
                     </div>
 
                     <div class="input-wrap span-12">
-                        <label for="nome">Categoria </label>
-                        <input type="enum" id="categoriaServico" placeholder="Ex: Barba">
+                        <label>Categoria</label>
+                        <input type="text" id="categoriaServico" placeholder="Ex: Barba">
                     </div>
 
                     <div class="input-wrap span-6">
-                        <label for="valor">Valor</label>
+                        <label>Valor</label>
                         <input type="number" id="valor" placeholder="0.00" step="0.01">
                     </div>
 
                     <div class="input-wrap span-6">
-                        <label for="dataDeCriacaoDoServico">Data de Criação</label>
+                        <label>Data de Criação</label>
                         <input type="date" id="dataDeCriacaoDoServico">
                     </div>
 
                     <div class="input-wrap span-6">
-                        <label for="atendente">Atendente</label>
-                        <input type="enum" id="atendente" placeholder="Jhon - Barbeiro">
+                        <label>Atendente</label>
+                        <input type="text" id="atendente" placeholder="Ex: João">
                     </div>
 
-                    <div class="input-wrap span-3">
-                        <label for="descricao">Descrição</label>
+                    <div class="input-wrap span-12">
+                        <label>Descrição</label>
                         <input type="text" id="descricao" placeholder="Descrição do serviço">
                     </div>
 
-                
+                </div> 
 
-                    
+                <div class="form-actions">
+                    <button class="btn-maps" onclick="salvarServico()">
+                        Salvar Serviço
+                    </button>
+                </div>
+            </div>
+            </div>
+            </div>
 
-                </div> <button class="btn-maps">Salvar Serviço</button>
-            </div> <div class="card gerenciar-cliente">
+            <div class="card gerenciar-servico">
                 <h3><i class="fa-solid fa-users-gear"></i> Gerenciar Serviços</h3>
 
-                <div class="table-container active">
+                <div class="table-container">
                     <table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Telefone</th>
+                                <th>Valor</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>João Silva</td>
-                                <td>(47) 99999-9999</td>
-                                <td>
-                                    <button class="btn-action edit"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="btn-action delete"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
+
+                        <tbody id="lista-servicos"></tbody>
+
                     </table>
                 </div>
 
@@ -110,8 +109,12 @@
                     <span>Os serviços que você adicionar aparecerão aqui.</span>
                 </div>
 
-            </div> </section>
+            </div>
+
+        </section>
     </main>
 
+    <script src="../js/servicos.js"></script>
 </body>
+
 </html>
